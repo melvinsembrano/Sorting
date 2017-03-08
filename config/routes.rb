@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'employee/index'
+  resources :employees, only: [:index] do
+    collection do
+      post :import
+    end
+  end
+  # get 'employee/index'
 
-  get 'employee/import'
+  # get 'employee/import'
 
   root 'welcome#index'
 
